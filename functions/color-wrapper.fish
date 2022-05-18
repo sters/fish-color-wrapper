@@ -167,6 +167,6 @@ function wrap_but_condition
     case "*$argv[1]*"
         wrap_set_color $argv[2] $more
     case "*"
-        wrap_set_color $argv[2]
+        echo -n -s $argv[2]
     end
 end
