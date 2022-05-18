@@ -1,6 +1,4 @@
 function wrap_set_color
-    __fish_color_wrapper_set_colors
-
     set -f basetext $argv[1]
     set -e argv[1]
     if [ (count $argv) -eq '0' ]
