@@ -4,7 +4,7 @@ function wrap_set_color
     if [ (count $argv) -eq '0' ]
         set -f wrap_color ''
     else
-        set -f wrap_color (set_color $argv)
+        set -f wrap_color (eval "set_color $argv")
     end
     echo -n -s "$wrap_color$basetext"(set_color normal)
 end
@@ -158,15 +158,10 @@ function wrap_background_color_brwhite
 end
 
 function wrap_but_condition
-    set -f more ''
-    if [ (count $argv) -gt 2 ]
-        set -f more $argv[3..-1]
-    end
-
     switch $argv[2]
     case "*$argv[1]*"
-        wrap_set_color $argv[2] $more
+        wrap_set_color $argv[2] $argv[3]
     case "*"
-        echo -n -s $argv[2]
+        wrap_set_color $argv[2] $argv[4]
     end
 end
