@@ -156,3 +156,17 @@ end
 function wrap_background_color_brwhite
     wrap_set_color $argv -b brwhite
 end
+
+function wrap_but_condition
+    set -f more ''
+    if [ (count $argv) -gt 2 ]
+        set -f more $argv[3..-1]
+    end
+
+    switch $argv[2]
+    case "*$argv[1]*"
+        wrap_set_color $argv[2] $more
+    case "*"
+        wrap_set_color $argv[2]
+    end
+end
