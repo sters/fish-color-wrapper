@@ -159,7 +159,7 @@ end
 
 function wrap_but_condition
     switch $argv[2]
-    case "*$argv[1]*"
+    case "$argv[1]"
         wrap_set_color $argv[2] $argv[3]
     case "*"
         wrap_set_color $argv[2] $argv[4]
